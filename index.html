@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MC Advisor — Relazioni che creano valore. Innovazione che crea futuro.</title>
+<meta name="description" content="MC Advisor di Mario Catini: consulenza in relazioni istituzionali, AI governance, transizione energetica e impatto sociale. Roma.">
+<meta property="og:title" content="MC Advisor — Mario Catini">
+<meta property="og:description" content="Relazioni che creano valore. Innovazione che crea futuro.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/mc-logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1420; --ink-2:#151D2D; --ink-3:#1E2840;
+    --paper:#F4EFE6; --muted:#A7AEBB; --line:rgba(244,239,230,.12);
+    --gold:#C9A45C; --gold-soft:rgba(201,164,92,.14);
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:hidden}
+  body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+  h2{font-size:clamp(2.1rem,4.2vw,3.4rem);margin:.5rem 0 1.2rem}
+  section{padding:120px 0;position:relative}
+  .lead{color:var(--muted);font-size:1.08rem;max-width:620px}
+
+  /* NAV */
+  nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .4s, border-color .4s;border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(14,20,32,.86);backdrop-filter:blur(14px);border-color:var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.35rem;letter-spacing:.02em}
+  .brand img{width:38px;height:38px}
+  .brand span em{font-style:normal;color:var(--gold)}
+  .links{display:flex;gap:34px;font-size:.86rem;letter-spacing:.04em}
+  .links a{color:var(--muted);transition:color .25s}
+  .links a:hover{color:var(--paper)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-size:.88rem;font-weight:500;letter-spacing:.03em;transition:all .3s}
+  .btn-gold{background:var(--gold);color:var(--ink)}
+  .btn-gold:hover{background:#d9b670;transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--paper)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .menu-btn{display:none;background:none;border:0;color:var(--paper);font-size:1.6rem;cursor:pointer}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:900px;height:900px;right:-260px;top:-200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,164,92,.18) 0%,rgba(201,164,92,0) 62%);pointer-events:none}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:88px 88px;mask-image:radial-gradient(ellipse at 70% 40%,#000 0%,transparent 65%);opacity:.5}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:end}
+  .hero h1{font-size:clamp(3rem,7.2vw,6.2rem);margin:22px 0 28px}
+  .hero h1 i{color:var(--gold);font-style:italic}
+  .hero .lead{font-size:1.15rem;margin-bottom:40px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(160deg,rgba(30,40,64,.7),rgba(14,20,32,.5));backdrop-filter:blur(6px)}
+  .hero-card .stat{padding:18px 0;border-bottom:1px solid var(--line)}
+  .hero-card .stat:last-child{border:0;padding-bottom:0}
+  .hero-card .stat:first-child{padding-top:0}
+  .hero-card b{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:500}
+  .hero-card small{color:var(--muted);font-size:.84rem}
+
+  /* MARQUEE */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--ink-2)}
+  .marquee-track{display:flex;gap:56px;width:max-content;animation:scroll 38s linear infinite;font-family:var(--serif);font-size:1.5rem;color:var(--muted);white-space:nowrap}
+  .marquee-track span::after{content:"✦";color:var(--gold);margin-left:56px;font-size:.9rem;vertical-align:middle}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* AREE */
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:60px}
+  .area{background:var(--ink);padding:40px 30px 44px;transition:background .4s}
+  .area:hover{background:var(--ink-2)}
+  .area .num{font-family:var(--serif);color:var(--gold);font-size:1rem;letter-spacing:.1em}
+  .area h3{font-size:1.7rem;margin:60px 0 14px}
+  .area p{color:var(--muted);font-size:.95rem}
+
+  /* SERVIZI */
+  .services{background:var(--ink-2)}
+  .svc-list{margin-top:56px;display:grid;gap:22px}
+  .svc{display:grid;grid-template-columns:90px 1fr 1.1fr auto;gap:36px;align-items:center;padding:38px 40px;border:1px solid var(--line);border-radius:22px;background:var(--ink);transition:border-color .35s, transform .35s}
+  .svc:hover{border-color:rgba(201,164,92,.5);transform:translateX(6px)}
+  .svc .idx{font-family:var(--serif);font-size:3rem;color:var(--gold);line-height:1}
+  .svc h3{font-size:2rem}
+  .svc .tag{display:inline-block;margin-top:8px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .svc p{color:var(--muted);font-size:.98rem}
+  .svc .arrow{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold);transition:all .3s}
+  .svc:hover .arrow{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+  /* METODO */
+  .method{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+  .steps{counter-reset:s}
+  .step{position:relative;padding:0 0 38px 64px;border-left:1px solid var(--line);margin-left:20px}
+  .step:last-child{padding-bottom:0}
+  .step::before{counter-increment:s;content:"0" counter(s);position:absolute;left:-21px;top:-4px;width:42px;height:42px;border-radius:50%;background:var(--ink);border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-family:var(--serif);font-size:1rem}
+  .step h4{font-family:var(--serif);font-size:1.55rem;font-weight:500;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.96rem}
+  blockquote{font-family:var(--serif);font-style:italic;font-size:1.9rem;line-height:1.3;border-left:2px solid var(--gold);padding-left:26px;margin-top:40px}
+
+  /* ECOSISTEMA */
+  .eco{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 100%)}
+  .eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+  .card{border:1px solid var(--line);border-radius:22px;padding:34px;background:rgba(14,20,32,.6);transition:all .35s;display:flex;flex-direction:column;gap:14px;min-height:240px}
+  .card:hover{border-color:rgba(201,164,92,.45);transform:translateY(-4px)}
+  .card .role{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  .card h3{font-size:1.7rem}
+  .card p{color:var(--muted);font-size:.94rem;flex:1}
+  .card .go{font-size:.85rem;color:var(--paper);display:inline-flex;gap:8px;align-items:center}
+  .card.feature{background:linear-gradient(135deg,#F4EFE6 0%,#E6DFD2 100%);color:var(--ink)}
+  .card.feature p{color:#4a4f5a}
+  .card.feature .role{color:#8a6a2c}
+  .card.feature .go{color:var(--ink)}
+  .card.feature h3{font-size:1.9rem;letter-spacing:.12em}
+
+  /* CONTATTI */
+  .contact{text-align:center}
+  .contact h2{font-size:clamp(2.4rem,5.4vw,4.6rem);max-width:900px;margin:18px auto 24px}
+  .contact h2 i{color:var(--gold)}
+  .contact .lead{margin:0 auto 44px}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:60px auto 0;text-align:left}
+  .ci{border:1px solid var(--line);border-radius:18px;padding:24px 26px}
+  .ci small{display:block;color:var(--muted);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
+  .ci a,.ci span{font-size:.98rem;word-break:break-word}
+  .ci a:hover{color:var(--gold)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.82rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.marquee-track{animation:none}}
+
+  @media (max-width:980px){
+    .hero .wrap,.method{grid-template-columns:1fr}
+    .grid-4{grid-template-columns:1fr 1fr}
+    .svc{grid-template-columns:60px 1fr;gap:18px}
+    .svc p{grid-column:1/-1}
+    .svc .arrow{display:none}
+    .eco-grid{grid-template-columns:1fr 1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .links{display:none;position:absolute;top:76px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line)}
+    .links.open{display:flex}
+    .links a{padding:18px 28px;border-top:1px solid var(--line)}
+    .menu-btn{display:block}
+    nav .btn{display:none}
+    section{padding:90px 0}
+  }
+  @media (max-width:620px){
+    .grid-4,.eco-grid{grid-template-columns:1fr}
+    .card.feature{grid-column:auto}
+    .area h3{margin-top:30px}
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="assets/mc-logo.svg" alt=""><span>MC <em>Advisor</em></span></a>
+    <div class="links" id="links">
+      <a href="#aree">Aree</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#metodo">Metodo</a>
+      <a href="#ecosistema">Ecosistema</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+    <a href="#contatti" class="btn btn-gold">Parliamone</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Apri menu">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Mario Catini · Consulente indipendente · Roma</div>
+      <h1>Relazioni che creano <i>valore</i>.<br>Innovazione che crea <i>futuro</i>.</h1>
+      <p class="lead">Accompagno imprese, enti e progetti a impatto nel punto in cui strategia, istituzioni e tecnologia si incontrano. Con metodo, discrezione e una rete costruita sul campo.</p>
+      <div class="cta-row">
+        <a href="#servizi" class="btn btn-gold">Scopri i servizi →</a>
+        <a href="#contatti" class="btn btn-ghost">Fissa un incontro</a>
+      </div>
+    </div>
+    <aside class="hero-card reveal">
+      <div class="stat"><b>Istituzioni</b><small>Ministeri, enti locali, ambasciate, interlocutori parlamentari</small></div>
+      <div class="stat"><b>Innovazione</b><small>AI governance, tecnologie emergenti, trasformazione digitale</small></div>
+      <div class="stat"><b>Impatto</b><small>Transizione energetica, territori, progetti sociali</small></div>
+    </aside>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Relazioni istituzionali</span><span>AI governance</span><span>Transizione energetica</span><span>Impatto sociale</span><span>Advisory strategico</span><span>Innovazione</span>
+    <span>Relazioni istituzionali</span><span>AI governance</span><span>Transizione energetica</span><span>Impatto sociale</span><span>Advisory strategico</span><span>Innovazione</span>
+  </div>
+</div>
+
+<section id="aree">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Aree di intervento</div>
+      <h2>Quattro ambiti, una sola visione.</h2>
+      <p class="lead">Ogni progetto che seguo vive all'incrocio tra regole, persone e tecnologia. È lì che si crea, o si perde, il valore.</p>
+    </div>
+    <div class="grid-4 reveal">
+      <div class="area"><div class="num">01</div><h3>Relazioni istituzionali</h3><p>Dialogo con ministeri, amministrazioni e rappresentanze. Il giusto interlocutore, al momento giusto, con la proposta giusta.</p></div>
+      <div class="area"><div class="num">02</div><h3>AI governance</h3><p>Adozione responsabile dell'intelligenza artificiale: regole, rischi, opportunità e percorsi concreti di integrazione.</p></div>
+      <div class="area"><div class="num">03</div><h3>Transizione energetica</h3><p>Progetti rinnovabili e infrastrutturali: dal contatto con gli investitori al percorso autorizzativo.</p></div>
+      <div class="area"><div class="num">04</div><h3>Impatto sociale</h3><p>Iniziative per territori e comunità, con partner del terzo settore e del mondo associativo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servizi">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Servizi</div>
+      <h2>Tre formule, costruite su misura.</h2>
+      <p class="lead">Dall'intervento puntuale all'affiancamento continuativo. Ogni incarico parte da un primo colloquio riservato.</p>
+    </div>
+    <div class="svc-list">
+      <a href="#contatti" class="svc reveal">
+        <div class="idx">I</div>
+        <div><h3>Institutional Unlocker</h3><span class="tag">Accesso & dialogo istituzionale</span></div>
+        <p>Mappatura degli interlocutori, preparazione dei dossier e accompagnamento negli incontri per sbloccare progetti fermi o aprire nuovi canali con la pubblica amministrazione.</p>
+        <div class="arrow">→</div>
+      </a>
+      <a href="#contatti" class="svc reveal">
+        <div class="idx">II</div>
+        <div><h3>Autorizzazioni Express</h3><span class="tag">Percorsi autorizzativi</span></div>
+        <p>Regia dei procedimenti autorizzativi per progetti energetici e infrastrutturali: tempi, attori, documentazione e coordinamento dei professionisti coinvolti.</p>
+        <div class="arrow">→</div>
+      </a>
+      <a href="#contatti" class="svc reveal">
+        <div class="idx">III</div>
+        <div><h3>Strategic Advisory Retainer</h3><span class="tag">Affiancamento continuativo</span></div>
+        <p>Un advisor dedicato su base mensile: visione strategica, relazioni, opportunità di partnership e presidio dei temi chiave per la crescita dell'organizzazione.</p>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap method">
+    <div class="reveal">
+      <div class="eyebrow">Metodo</div>
+      <h2>Ascoltare, connettere, realizzare.</h2>
+      <p class="lead">Nessuna formula preconfezionata. Un percorso chiaro, con obiettivi misurabili e un unico punto di riferimento.</p>
+      <blockquote>«Il valore di una relazione si misura in ciò che rende possibile.»</blockquote>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><h4>Ascolto</h4><p>Un primo incontro riservato per capire obiettivi, vincoli e contesto. Senza impegno.</p></div>
+      <div class="step"><h4>Mappa</h4><p>Analisi degli attori, delle opportunità e dei rischi. Dove sono le leve, chi può muoverle.</p></div>
+      <div class="step"><h4>Strategia</h4><p>Un piano d'azione con priorità, tempi e responsabilità chiare.</p></div>
+      <div class="step"><h4>Connessione</h4><p>Attivazione della rete: incontri, partner, investitori, istituzioni.</p></div>
+      <div class="step"><h4>Risultato</h4><p>Accompagnamento fino all'obiettivo e verifica dei risultati raggiunti.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="eco" id="ecosistema">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Ecosistema</div>
+      <h2>Progetti, partner, idee.</h2>
+      <p class="lead">Una rete di realtà in cui porto competenze ed energia, ogni giorno.</p>
+    </div>
+    <div class="eco-grid">
+      <div class="card reveal"><span class="role">Partner</span><h3>Consorzio Astratech Italia</h3><p>Innovazione tecnologica, industria e piattaforme digitali per le imprese, tra cui AstraTech ONE.</p><a class="go" href="https://astratechone.it" target="_blank" rel="noopener">astratechone.it ↗</a></div>
+      <div class="card reveal"><span class="role">Co-fondatore</span><h3>Smart Piceno APS</h3><p>Formazione dei giovani su intelligenza artificiale e cybersecurity nel territorio piceno.</p></div>
+      <div class="card reveal"><span class="role">Fondatore</span><h3>Social FabLab Orvieto</h3><p>Un laboratorio sociale dove tecnologia, arte e comunità si incontrano.</p></div>
+      <div class="card reveal"><span class="role">Autore</span><h3>Sinapsi Umane</h3><p>Il mio romanzo futurista: un viaggio nel rapporto tra mente umana e tecnologia.</p></div>
+      <div class="card reveal"><span class="role">Canale YouTube</span><h3>MC Advisor</h3><p>Video e Shorts su AI, innovazione, startup, business e strategie di crescita.</p></div>
+      <a href="emile/" class="card feature reveal"><span class="role">Progetto creativo · Brand & web</span><h3>EMILE</h3><p>Identità di marca e vetrina online per una personal organizer: Eleganza, Minimalismo, Integrità, Libertà, Essenza.</p><span class="go">Visita la vetrina →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contatti">
+  <div class="wrap reveal">
+    <div class="eyebrow">Contatti</div>
+    <h2>Il prossimo progetto <i>inizia</i> da una conversazione.</h2>
+    <p class="lead">Raccontami dove vuoi arrivare. Ti rispondo personalmente.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a href="mailto:mario.catini@mcadvisor.online?subject=Richiesta%20incontro%20MC%20Advisor" class="btn btn-gold">Scrivimi →</a>
+      <a href="tel:+393888753990" class="btn btn-ghost">Chiamami</a>
+    </div>
+    <div class="contact-grid">
+      <div class="ci"><small>Email</small><a href="mailto:mario.catini@mcadvisor.online">mario.catini@mcadvisor.online</a></div>
+      <div class="ci"><small>Telefono</small><a href="tel:+393888753990">+39 388 875 3990</a></div>
+      <div class="ci"><small>Sede</small><span>Via F. Stilicone 213<br>00175 Roma</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand" style="font-size:1.1rem"><img src="assets/mc-logo.svg" alt="" style="width:30px;height:30px"><span>MC <em>Advisor</em></span></a>
+    <span>© <span id="y"></span> MC Advisor di Mario Catini · P.IVA 16286291006</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), {passive:true});
+  const links = document.getElementById('links');
+  document.getElementById('menuBtn').onclick = () => links.classList.toggle('open');
+  links.querySelectorAll('a').forEach(a => a.onclick = () => links.classList.remove('open'));
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
