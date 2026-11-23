@@ -11,4 +11,4 @@ Sito statico, pronto per GitHub Pages.
 Dominio personalizzato (es. mcadvisor.online): in Settings → Pages → Custom domain, poi un record CNAME dal DNS verso `mariocatini-cyber.github.io`.
 
 ## Logo
-`assets/mc-logo.svg` è un monogramma provvisorio: sostituiscilo con il logo ufficiale MC Advisor mantenendo lo stesso nome file.
+`assets/mc-logo.png` è il logo ufficiale MC Advisor (da sostituire con una versione ad alta risoluzione, stesso nome file).
